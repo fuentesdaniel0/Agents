@@ -37,11 +37,10 @@ Whenever a new AI agent initializes in this repository, it **MUST** perform the 
 ---
 
 ## 📋 2. Checkpoint & Sprint Wrap-Up SOP
-Before closing out a major milestone or completing a work session, the agent **MUST** synchronize state to the repository. *Note: Do not run heavy production builds on every minor code change. Reserve this for the checkpoint.*
-1.  **Run Code Verification**: Validate standard type consistency (`npx tsc --noEmit`), code styles (`npm run lint`), and ensure tests are 100% green (`npm run test:run`).
-2.  **Run Compilation Checks**: Verify standard builds succeed via `npm run build` ONLY at the end of the sprint.
-3.  **Update Memory Files**: Modulate `current.md`, `history.md`, and `future.md` to reflect newly completed features, security variables, and revised roadmap goals.
-4.  **Version Control & Branching**: Advise the developer to commit these changes to a **feature branch** (e.g., `feature/new-analytics-ui`) rather than `main`. This prevents triggering heavy CI/CD pipelines on every small commit and keeps your development loop blazing fast. Only merge to `main` when the milestone is fully complete.
+Before closing out a major milestone or completing a work session, the agent **MUST** synchronize state to the repository by executing the **session-checkpoint** skill.
+
+1.  **Trigger the Skill**: Read and execute the protocol defined in `.agents/skills/session-checkpoint/SKILL.md`. This skill will automatically handle status checks, memory file updates, code verification, and source control checkpointing.
+2.  **Version Control & Branching**: While the checkpoint skill handles local commits, always advise the developer to push these changes to a **feature branch** (e.g., `feature/new-analytics-ui`) rather than `main`. This prevents triggering heavy CI/CD pipelines on every small commit and keeps your development loop blazing fast. Only merge to `main` when the milestone is fully complete.
 
 ---
 
