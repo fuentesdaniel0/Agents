@@ -1,11 +1,11 @@
-# 🧠 Agent Protocols & Contextual Memory
+# Agent Protocols & Contextual Memory
 
 A modular "brain" for AI coding assistants. This repository provides a drop-in directory structure of **rules, skills, workflows, and version-controlled memory templates** designed to give AI agents (like Google Antigravity or GitHub Copilot Workspaces) persistent, highly-optimized context across multiple development sessions.
 
-## 🌟 The Problem
+## The Problem
 AI agents operate in isolated sessions. As projects grow, context windows fill up with useless chat history, causing latency, higher API costs, and degraded performance. If you start a fresh session, the AI forgets your architecture, active tasks, and strict coding rules.
 
-## 🚀 The Solution
+## The Solution
 This repository establishes a **Developer-Agent Synchronization Protocol**. It provides a structured, version-controlled markdown "memory" system and automated agent scripts.
 - **Instant Context**: Agents read a summarized `current.md` file on startup instead of parsing massive chat histories.
 - **Automated Checkpoints**: A native skill (`/checkpoint`) automatically compiles tests, summarizes work, and commits state to memory files before closing a session.
@@ -13,7 +13,7 @@ This repository establishes a **Developer-Agent Synchronization Protocol**. It p
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ### 1. `.agents/` (The AI Engine)
 Native configurations, automations, and constraints for the AI agent.
@@ -31,7 +31,7 @@ Blank templates for version-controlled state retention.
 
 ---
 
-## 🛠️ Quick Start (How to Use)
+## Quick Start (How to Use)
 
 To apply this intelligence layer to any of your own projects, simply copy these two directories into the root of your new or existing repository:
 
@@ -44,7 +44,7 @@ cd /path/to/your/new/project/
 ```
 
 ### The Standard Workflow
-Once installed, follow this highly optimized development loop:
+Once installed, follow this development loop:
 
 1. **Initialize the Project**: In a new chat session, type `/intake`. The agent will interview you about your tech stack and goals, automatically populating the blank memory templates for you.
 2. **Start a Work Session**: When you start a fresh chat in the future, the `startup.md` rule automatically forces the agent to read `current.md` and `protocol.md`. It syncs with your project in seconds.
@@ -53,7 +53,7 @@ Once installed, follow this highly optimized development loop:
 
 ---
 
-## 🤝 Customizing
+## Customizing
 You are highly encouraged to modify these files! 
 - Add custom linters or build steps to the `session-checkpoint` skill.
 - Add specific architectural rules to the `.agents/rules/` directory (e.g., `tailwind-rules.md`).
