@@ -4,11 +4,11 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 ---
 
-## Next Session Focus
+## Session Focus
 
 *This section dictates the immediate priority for the next AI agent session. It is populated during the `/checkpoint` wrap-up or via `/plan`.*
 
-- [ ] Focus on rigorous testing and evaluations of the whole approach as an agentic coding framework.
+- [ ] Review documentation for v1.0 release.
 
 ---
 
@@ -20,6 +20,10 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 ### Milestone 2: Publish and Distribute
 *   **Feature 1**: Prepare for v1.0 tag.
+
+### Continuous Milestone: Meta-Planning & Agent Improvement
+*   **Feature 1**: Evaluate agent performance across workflows and refine `.agents/` constraints.
+*   **Feature 2**: Ideate new skills or interactive slash commands to augment autonomy.
 
 ---
 

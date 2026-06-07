@@ -19,7 +19,7 @@ This tests whether the agent correctly executes its Startup SOP without being ex
 
 **Expected Agent Behavior:**
 - The agent should **not** hallucinate an answer.
-- It should automatically read `.agents/memory/context.md` and `.agents/memory/backlog.md` (specifically looking for the "Next Session Focus").
+- It should automatically read `.agents/memory/context.md` and `.agents/memory/backlog.md` (specifically looking for the "Session Focus").
 - It should respond by either quoting the placeholders in the memory files or accurately summarizing the current tracked state.
 
 ---

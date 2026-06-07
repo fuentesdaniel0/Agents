@@ -1,6 +1,6 @@
-# Agent Protocols & Contextual Memory
+# Epoch: Contextual Memory for AI Assistants
 
-A modular "brain" for AI coding assistants. This repository provides a drop-in directory structure of **rules, skills, workflows, and version-controlled memory templates** designed to give AI agents (like Google Antigravity or GitHub Copilot Workspaces) persistent, highly-optimized context across multiple development sessions.
+Give your AI coding assistant persistent memory with zero databases. A drop-in Markdown protocol for stateful, multi-session development. This repository provides a simple directory structure of **rules, skills, workflows, and version-controlled memory templates** designed to give AI agents (like Cursor, Google Antigravity, or GitHub Copilot Workspaces) persistent, highly-optimized context across multiple development sessions.
 
 ## The Problem
 AI agents operate in isolated sessions. As projects grow, context windows fill up with useless chat history, causing latency, higher API costs, and degraded performance. If you start a fresh session, the AI forgets your architecture, active tasks, and strict coding rules.
@@ -46,8 +46,8 @@ cd /path/to/your/new/project/
 Once installed, follow this "Plan-Do-Check-Act" development loop:
 
 1. **Initialize the Project**: In a new chat session, type `/plan`. The agent will interview you about your tech stack and goals, automatically populating the blank memory templates for you.
-2. **Sprint Planning**: At the start of a session, if the project is already initialized, type `/plan` or `/sprint`. The agent will review `backlog.md`, groom the queue with you, and set the immediate "Next Session Focus".
-3. **Start a Work Session**: When you start a fresh chat in the future, the `startup.md` rule automatically forces the agent to read `context.md` and the "Next Session Focus" from `backlog.md`. It syncs with your project in seconds.
+2. **Sprint Planning**: At the start of a session, if the project is already initialized, type `/plan` or `/sprint`. The agent will review `backlog.md`, groom the queue with you, and set the immediate "Session Focus".
+3. **Start a Work Session**: When you start a fresh chat in the future, the `startup.md` rule automatically forces the agent to read `context.md` and the "Session Focus" from `backlog.md`. It syncs with your project in seconds.
 4. **Wrap Up**: When you are done coding, type `/checkpoint`. The agent will run the checkpoint workflow—running your tests, summarizing the session, updating the memory files, committing state, and asking you what the focus should be for the *next* session. 
 5. **Reset**: Open a fresh, clean chat window for your next task with zero token bloat!
 

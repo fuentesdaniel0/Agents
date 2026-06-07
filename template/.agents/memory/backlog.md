@@ -4,7 +4,7 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 ---
 
-## Next Session Focus
+## Session Focus
 
 *This section dictates the immediate priority for the next AI agent session. It is populated during the `/checkpoint` wrap-up or via `/plan`.*
 

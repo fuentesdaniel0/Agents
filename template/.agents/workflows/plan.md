@@ -35,7 +35,7 @@ Present a brief summary of the initialized project state to the user. Confirm th
 
 ### 1. Backlog Review
 - Read `.agents/memory/backlog.md`.
-- Present a concise summary of the "Next Session Focus" (if any) and the top items in the "High-Level Roadmap" to the user.
+- Present a concise summary of the "Session Focus" (if any) and the top items in the "High-Level Roadmap" to the user.
 - Ask the user: *"Which of these roadmap items should we pull into the 'Active Backlog Tasks' for this session? Or is there a new priority not listed here?"*
 
 *Wait for the user's response before proceeding.*
@@ -45,7 +45,7 @@ Based on the user's response:
 - Analyze the selected Roadmap items. If they are large features, **decompose them into atomic, verifiable subtasks**.
 - Update `.agents/memory/backlog.md`:
   - Move the selected items (and their subtasks) into the "Active Backlog Tasks".
-  - Update the "Next Session Focus" section to reflect the immediate goal.
+  - Update the "Session Focus" section to reflect the immediate goal.
 - Present the updated "Active Backlog Tasks" queue to the user for confirmation.
 
 ### 3. Execution Handoff

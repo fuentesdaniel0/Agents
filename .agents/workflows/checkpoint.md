@@ -19,7 +19,7 @@ When the user triggers the `/checkpoint` command or asks to prepare to close the
 
 ## 3. Next Session Planning
 - Interactively ask the user: *"What should our primary focus be for the next session?"*
-- Inject their response into the "Next Session Focus" section at the top of `.agents/memory/backlog.md`.
+- Inject their response into the "Session Focus" section at the top of `.agents/memory/backlog.md`.
 
 ## 4. Verification
 - Run the project's native build, lint, and test commands to ensure the codebase is clean before closing. (e.g., `make test`, `npm test`, `pytest`, or `cargo test` depending on the tech stack).
@@ -36,7 +36,7 @@ When the user triggers the `/checkpoint` command or asks to prepare to close the
   - Advise the user that the workspace is not currently a git repository, and suggest initiating one (`git init`) if they wish to establish version-controlled session states.
 
 ## 6. Session Wrap-Up
-- Respond to the user with a concise summary of what was accomplished, the verification results, and confirm that the state is committed and the session is ready to be closed. Provide a brief preview of the "Next Session Focus" that was just established.
+- Respond to the user with a concise summary of what was accomplished, the verification results, and confirm that the state is committed and the session is ready to be closed. Provide a brief preview of the "Session Focus" that was just established.
 
 ## 7. Context Window Reset Reminder
 - In your final response, remind the developer about the **Context Window Reset Protocol**:
