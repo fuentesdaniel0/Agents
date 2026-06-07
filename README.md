@@ -14,7 +14,7 @@ A version-controlled file structure that synchronizes your agent's state:
 
 ## Repository Structure
 
-### 1. `.epoch/` (The Engine)
+### 1. `.agents/` (The Engine)
 Configurations, automations, and constraints for the AI agent.
 
 - **`rules/`**: Contextual guidelines automatically injected into prompts.
@@ -22,7 +22,7 @@ Configurations, automations, and constraints for the AI agent.
 - **`workflows/`**: Interactive step-by-step procedures (`/plan`, `/checkpoint`).
 - **`prompts/`**: Modular system prompts for specialized tasks.
 
-### 2. `.epoch/memory/` (The State)
+### 2. `.agents/memory/` (The State)
 Blank templates for version-controlled state retention.
 
 - **`context.md`**: Active architecture, code graph, and environment state.
@@ -30,10 +30,10 @@ Blank templates for version-controlled state retention.
 - **`backlog.md`**: Product roadmap and pending tasks.
 
 ## Quick Start
-Drop the `.epoch` directory into the root of any new or existing repository.
+Drop the `.agents` directory into the root of any new or existing repository.
 
 ```bash
-cp -a template/.epoch /path/to/your/project/
+cp -a template/.agents /path/to/your/project/
 cd /path/to/your/project/
 ```
 
@@ -48,5 +48,5 @@ cd /path/to/your/project/
 Modify these files to fit your stack:
 
 - Add custom linters or build steps to the `checkpoint.md` workflow.
-- Inject specific architectural rules into `.epoch/rules/`.
-- Create new modular personas under `.epoch/prompts/`.
+- Inject specific architectural rules into `.agents/rules/`.
+- Create new modular personas under `.agents/prompts/`.
