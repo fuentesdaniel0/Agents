@@ -2,9 +2,12 @@
 
 This file documents the active state, current configurations, code graph, and verification status of the current project.
 
+> [!IMPORTANT]
+> **Concision Constraint**: Keep all entries in this file extremely concise. Prune deprecated modules or obsolete state immediately to preserve token space.
+
 ---
 
-## 🛠️ Active Stack Details
+## Active Stack Details
 
 | Layer | Technology | Key Details |
 | :--- | :--- | :--- |
@@ -15,7 +18,7 @@ This file documents the active state, current configurations, code graph, and ve
 
 ---
 
-## 📐 Architecture / Code Graph
+## Architecture / Code Graph
 
 *Describe the high-level architecture or monorepo structure here.*
 
@@ -25,17 +28,17 @@ graph TD
 ```
 
 ### Module Descriptions:
-- **`src/example.ts`**: Description of this core file.
+- **`[path/to/module]`**: [Description of this core module.]
 
 ---
 
-## 🔒 Environment / Security Notes
+## Environment / Security Notes
 
 *List any local environment requirements, mock passcodes, or test API keys needed for development.*
 
 ---
 
-## 🧪 Verification Compliance Status
+## Verification Compliance Status
 
 We enforce strict validation criteria. The current status is:
 
