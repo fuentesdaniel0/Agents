@@ -40,4 +40,9 @@ This file captures the chronological history of milestones, architectural decisi
 *   **Accomplishment**: Generalized the ADK agent template by copying the pristine `.agents/` memory protocol directory directly into the starter kit for an out-of-the-box self-contained experience. Replaced hardcoded values in `main.py` with environment variable overrides (`AGENT_NAME`, `AGENT_MODEL`, `AGENT_DESCRIPTION`, `LOCATION` / `GOOGLE_CLOUD_LOCATION`) to allow easy developer customization. Documented all configuration options in `README.md`, and explicitly added `google-genai` to dependencies.
 *   **Decisions**: Include the pristine `.agents/` folder inside `adk-agent-template/` to provide a complete, self-contained starter project. Externalize agent metadata and model/location variables to allow dynamic runtime configuration without changing code.
 
+### Sprint: Instantiation and Drift Automation
+*   **Accomplishment**: Created `scripts/sync-templates.py` to recursively sync core memory rules, workflows, and skills from the source of truth (`template/.agents/`) to active configurations, completely eliminating manual synchronization drift. Created `scripts/create-agent.py` as an interactive, one-command project bootstrapper CLI that automatically copies template structures, runs interactive environment configuration interviews, generates local `.env` setups, initializes git, and configures python virtual environments.
+*   **Decisions**: Enforce `template/.agents/` as the single source of truth for protocol files. Provide high-quality automation tooling in `scripts/` to maximize convenience and simplify the developer onboarding journey.
+
+
 

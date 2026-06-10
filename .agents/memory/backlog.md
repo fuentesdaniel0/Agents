@@ -20,7 +20,9 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 ### Milestone 2: Publish and Distribute
 *   [x] **Feature 1**: Generalize ADK agent template structure and environment configuration (embed `.agents/` memory, externalize metadata/location environment variables).
-*   [ ] **Feature 2**: Prepare for v1.0 tag.
+*   [x] **Feature 2**: Implement template sync tool (`scripts/sync-templates.py`) to prevent rule/workflow drift.
+*   [x] **Feature 3**: Implement interactive agent bootstrapper CLI (`scripts/create-agent.py`) to automate project instantiation.
+*   [ ] **Feature 4**: Prepare for v1.0 tag.
 
 ### Milestone 3: ADK Agent Template & FastAPI Deployment (Completed)
 *   **Feature 1**: Design and scaffold ADK agent template directory with Epoch memory integration.
