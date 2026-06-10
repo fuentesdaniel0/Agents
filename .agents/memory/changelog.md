@@ -44,5 +44,9 @@ This file captures the chronological history of milestones, architectural decisi
 *   **Accomplishment**: Created `scripts/sync-templates.py` to recursively sync core memory rules, workflows, and skills from the source of truth (`template/.agents/`) to active configurations, completely eliminating manual synchronization drift. Created `scripts/create-agent.py` as an interactive, one-command project bootstrapper CLI that automatically copies template structures, runs interactive environment configuration interviews, generates local `.env` setups, initializes git, and configures python virtual environments.
 *   **Decisions**: Enforce `template/.agents/` as the single source of truth for protocol files. Provide high-quality automation tooling in `scripts/` to maximize convenience and simplify the developer onboarding journey.
 
+### Sprint: Calendar Advisor Agent Integration
+*   **Accomplishment**: Created a new autonomous agent project (`CalendarAgent/`) under `Dev` based on `CalendarV2`. Ported the parallel availability query execution from `CalendarV2` into `calendar_tools.py` using `gcloud compute advice calendar-mode`. Registered tools in the ADK agent structure for listing machine types, regions, and executing queries. Hardened type validation and test coverage.
+*   **Decisions**: Extracted file editing/creation tools to keep the advisor agent strictly focused on resource availability.
+
 
 

@@ -35,7 +35,7 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 ### Milestone 5: Agent Factory & Calendar Advisor Agent Integration
 *   **Feature 1**: Establish an Agent Factory pattern to dynamically define, configure, and instantiate ADK-compatible agents.
-*   **Feature 2**: Refactor and integrate the Calendar Advisor UI project logic as an autonomous agent registered with the factory.
+*   [x] **Feature 2**: Refactor and integrate the Calendar Advisor UI project logic as an autonomous agent registered with the factory.
 
 ### Continuous Milestone: Meta-Planning & Agent Improvement
 *   **Feature 1**: Evaluate agent performance across workflows and refine `.agents/` constraints.
