@@ -5,6 +5,7 @@ from main import (
     read_context, update_context,
     read_backlog, update_backlog,
     read_changelog, update_changelog,
+    read_file, write_file, list_project_files, run_verification_command,
     MEMORY_DIR
 )
 
@@ -46,6 +47,44 @@ class TestEpochAgentTools(unittest.TestCase):
         update_result = update_changelog(test_content)
         self.assertEqual(update_result, "Successfully updated changelog.md.")
         self.assertEqual(read_changelog(), test_content)
+
+    def test_filesystem_path_traversal_protection(self):
+        # Verify read_file blocks traversal
+        self.assertIn("Access denied", read_file("../README.md"))
+        self.assertIn("Access denied", read_file("/etc/passwd"))
+
+        # Verify write_file blocks traversal
+        self.assertIn("Access denied", write_file("../malicious.py", "print('bad')"))
+
+    def test_write_and_read_file_within_workspace(self):
+        filename = "test_temp_file.txt"
+        content = "Hello from unit tests!"
+        
+        # Clean up if exists
+        if os.path.exists(filename):
+            os.remove(filename)
+            
+        try:
+            write_res = write_file(filename, content)
+            self.assertIn("Successfully wrote file", write_res)
+            self.assertEqual(read_file(filename), content)
+        finally:
+            if os.path.exists(filename):
+                os.remove(filename)
+
+    def test_list_project_files(self):
+        files = list_project_files()
+        self.assertIn("main.py", files)
+        self.assertNotIn("venv", files)
+
+    def test_run_verification_command(self):
+        # Valid execution command
+        res = run_verification_command("python3 --version")
+        self.assertIn("Python", res)
+
+        # Unauthorized command
+        res = run_verification_command("cat /etc/passwd")
+        self.assertIn("is not in the allowed list", res)
 
 if __name__ == "__main__":
     unittest.main()
