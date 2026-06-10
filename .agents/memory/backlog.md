@@ -19,7 +19,8 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 *   **Feature 2**: Re-initialize the root `.agents/` to track repository development.
 
 ### Milestone 2: Publish and Distribute
-*   **Feature 1**: Prepare for v1.0 tag.
+*   [x] **Feature 1**: Generalize ADK agent template structure and environment configuration (embed `.agents/` memory, externalize metadata/location environment variables).
+*   [ ] **Feature 2**: Prepare for v1.0 tag.
 
 ### Milestone 3: ADK Agent Template & FastAPI Deployment (Completed)
 *   **Feature 1**: Design and scaffold ADK agent template directory with Epoch memory integration.

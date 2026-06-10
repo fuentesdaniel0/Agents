@@ -34,11 +34,23 @@ You can access the auto-generated A2A Agent Card by visiting:
 http://localhost:8080/.well-known/agent-card.json
 ```
 
-### 3. Folder Structure
+### 3. Folder Structure & Configuration
 
-When deploying or running, the agent will look for the `.agents/memory` folder in its working directory. You can customize this by setting the `EPOCH_MEMORY_DIR` environment variable:
+When deploying or running, the agent will look for the `.agents/memory` folder in its working directory. You can customize the folder path and agent metadata using the following environment variables:
+
+| Environment Variable | Description | Default Value |
+| :--- | :--- | :--- |
+| `EPOCH_MEMORY_DIR` | Directory path containing context.md, backlog.md, and changelog.md. | `.agents/memory` |
+| `AGENT_NAME` | The registry and display name of the agent. | `epoch_context_agent` |
+| `AGENT_MODEL` | Gemini LLM model identifier. | `gemini-2.5-pro` |
+| `AGENT_DESCRIPTION` | The purpose/description of the agent. | `An AI agent with persistent, stateful memory synchronized via the Epoch protocol.` |
+| `LOCATION` / `GOOGLE_CLOUD_LOCATION` | Vertex AI client location/region. | `us-central1` |
+
+Example of setting configuration variables:
 
 ```bash
+export AGENT_NAME="custom_development_agent"
+export AGENT_MODEL="gemini-2.5-flash"
 export EPOCH_MEMORY_DIR="/path/to/your/project/.agents/memory"
 ```
 

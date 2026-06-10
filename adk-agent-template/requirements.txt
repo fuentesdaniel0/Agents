@@ -2,4 +2,5 @@ google-adk
 uvicorn
 fastapi
 pydantic
+google-genai
 google-cloud-aiplatform

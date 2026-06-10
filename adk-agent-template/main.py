@@ -70,17 +70,23 @@ class VertexGemini(Gemini):
     @cached_property
     def api_client(self) -> Client:
         project = os.environ.get("GOOGLE_CLOUD_PROJECT")
+        location = os.environ.get("GOOGLE_CLOUD_LOCATION") or os.environ.get("LOCATION", "us-central1")
         if project:
-            # Force Vertex AI backend using the Cloud Run environment PROJECT ID
-            return Client(vertexai=True, project=project, location="us-central1")
+            # Force Vertex AI backend using the Cloud Run environment PROJECT ID and configured location
+            return Client(vertexai=True, project=project, location=location)
         # Local fallback using standard Gemini Client (requires GEMINI_API_KEY)
         return Client()
 
+# Get agent configuration from environment variables with defaults
+AGENT_NAME = os.environ.get("AGENT_NAME", "epoch_context_agent")
+AGENT_MODEL = os.environ.get("AGENT_MODEL", "gemini-2.5-pro")
+AGENT_DESCRIPTION = os.environ.get("AGENT_DESCRIPTION", "An AI agent with persistent, stateful memory synchronized via the Epoch protocol.")
+
 # Create the Epoch ADK Agent using the custom model definition
 epoch_agent = Agent(
-    name="epoch_context_agent",
-    model=VertexGemini(model="gemini-2.5-pro"),
-    description="An AI agent with persistent, stateful memory synchronized via the Epoch protocol.",
+    name=AGENT_NAME,
+    model=VertexGemini(model=AGENT_MODEL),
+    description=AGENT_DESCRIPTION,
     instruction=(
         "You are an AI agent operating with persistent memory tracked in .agents/memory/.\n"
         "At the start of any task, use the `read_context` and `read_backlog` tools to read context.md and backlog.md.\n"

@@ -39,7 +39,7 @@ graph TD
 - **`template/.agents/`**: The pristine distribution folder containing rules, skills, and blank memory templates.
 - **`.agents/`**: The active memory system tracking the development of *this* repository itself.
 - **`EVALUATION.md`**: Behavioral test script for verifying AI agent compliance.
-- **`adk-agent-template/`**: An Agent Development Kit (ADK) template configured for hosting Epoch-compliant agents on Google Cloud Agent Engine, complete with Agent-to-Agent (A2A) integration.
+- **`adk-agent-template/`**: An Agent Development Kit (ADK) template configured for hosting Epoch-compliant agents on Google Cloud Agent Engine, complete with Agent-to-Agent (A2A) integration, environment configuration, and localized memory template.
 
 ---
 
@@ -56,5 +56,5 @@ We enforce strict validation criteria. The current status is:
 
 1.  **Type Checks**: N/A
 2.  **Linting**: Clean Markdown.
-3.  **Test Suites**: Evaluated via QA script.
+3.  **Test Suites**: Passed template unit tests (`test_agent.py` - 4 tests).
 4.  **Production Builds**: N/A

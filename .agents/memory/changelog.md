@@ -36,5 +36,8 @@ This file captures the chronological history of milestones, architectural decisi
 *   **Accomplishment**: Installed and verified 5 Google Cloud MCP servers (`developer-knowledge`, `agent-registry`, `storage`, `run`, and `gemini-cloud-assist`). Configured project-scoped configurations inside `.agents/settings.json` and `.agents/mcp_config.json`. Enabled required API services and IAM policies on the active GCP project. Successfully deployed the ADK agent to **Google Cloud Agent Engine** (Agent Runtime reasoning engine) using a staging directory build context to exclude virtual environment bloat, verifying its successful startup and state synchronization tools.
 *   **Decisions**: Exclude Python `venv` from the ADK build context to prevent packaging errors due to broken symlinks. Keep project-specific MCP server settings scoped to `.agents/` rather than global configurations.
 
-*(Append new sprint accomplishments below)*
+### Sprint: Template Generalization & Configuration
+*   **Accomplishment**: Generalized the ADK agent template by copying the pristine `.agents/` memory protocol directory directly into the starter kit for an out-of-the-box self-contained experience. Replaced hardcoded values in `main.py` with environment variable overrides (`AGENT_NAME`, `AGENT_MODEL`, `AGENT_DESCRIPTION`, `LOCATION` / `GOOGLE_CLOUD_LOCATION`) to allow easy developer customization. Documented all configuration options in `README.md`, and explicitly added `google-genai` to dependencies.
+*   **Decisions**: Include the pristine `.agents/` folder inside `adk-agent-template/` to provide a complete, self-contained starter project. Externalize agent metadata and model/location variables to allow dynamic runtime configuration without changing code.
+
 
