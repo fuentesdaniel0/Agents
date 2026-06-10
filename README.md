@@ -23,7 +23,6 @@ Configurations, automations, and constraints for the AI agent.
 - **`rules/`**: Contextual guidelines automatically injected into prompts.
 - **`skills/`**: Executable macros and custom tools.
 - **`workflows/`**: Interactive step-by-step procedures (`/plan`, `/checkpoint`).
-- **`prompts/`**: Modular system prompts for specialized tasks.
 
 ### 2. `.agents/memory/` (State)
 
@@ -32,6 +31,10 @@ Blank templates for version-controlled state retention.
 - **`context.md`**: Active architecture, code graph, and environment state.
 - **`changelog.md`**: Chronological sprint history and architectural decisions.
 - **`backlog.md`**: Product roadmap and pending tasks.
+
+### 3. `adk-agent-template/` (Deployment)
+
+An out-of-the-box template for deploying Epoch-compatible agents on Google Cloud Agent Engine or Cloud Run with Agent-to-Agent (A2A) interoperability.
 
 ## Quick Start
 
@@ -56,4 +59,3 @@ Modify these files to fit your stack:
 
 - Add custom linters or build steps to the `checkpoint.md` workflow.
 - Inject specific architectural rules into `.agents/rules/`.
-- Create new modular personas under `.agents/prompts/`.

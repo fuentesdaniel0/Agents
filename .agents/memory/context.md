@@ -28,15 +28,18 @@ graph TD
     Template["template/.agents/"]
     RootAgents[".agents/"]
     Eval["EVALUATION.md"]
+    ADKTemplate["adk-agent-template/"]
     Root --> Template
     Root --> RootAgents
     Root --> Eval
+    Root --> ADKTemplate
 ```
 
 ### Module Descriptions:
 - **`template/.agents/`**: The pristine distribution folder containing rules, skills, and blank memory templates.
 - **`.agents/`**: The active memory system tracking the development of *this* repository itself.
 - **`EVALUATION.md`**: Behavioral test script for verifying AI agent compliance.
+- **`adk-agent-template/`**: An Agent Development Kit (ADK) template configured for hosting Epoch-compliant agents on Google Cloud Agent Engine, complete with Agent-to-Agent (A2A) integration.
 
 ---
 
