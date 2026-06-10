@@ -38,12 +38,25 @@ An out-of-the-box template for deploying Epoch-compatible agents on Google Cloud
 
 ## Quick Start
 
-Drop the `.agents` directory into the root of any new or existing repository.
+Depending on your requirements, choose one of the following setup paths:
+
+### Path A: Create a Complete Python ADK Agent (FastAPI/Vertex AI)
+To scaffold a new Python microservice agent project complete with local memory, virtual environment, and deployment configurations:
 
 ```bash
-cp -a template/.agents /path/to/your/project/
-cd /path/to/your/project/
+# Run the bootstrapper CLI
+python3 scripts/create-agent.py /path/to/your/new-project
 ```
+This utility will guide you through config setups and create a self-contained project workspace at `/path/to/your/new-project`.
+
+### Path B: Add Memory Protocol to an Existing Project (Any Language)
+To drop Epoch's contextual memory tracking protocol into an existing repository of any tech stack:
+
+```bash
+# Copy the pristine memory protocol structure
+cp -a template/.agents /path/to/your/existing-project/
+```
+Once copied, open your IDE AI assistant in `/path/to/your/existing-project/` and type `/plan` to begin.
 
 ## Development Loop
 
