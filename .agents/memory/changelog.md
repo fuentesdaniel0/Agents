@@ -32,4 +32,9 @@ This file captures the chronological history of milestones, architectural decisi
 *   **Accomplishment**: Simplified the memory tools signature by decomposing the generic `read_epoch_memory`/`update_epoch_memory` tools into six explicit, parameter-free (read) or single-argument (write) functions (`read_context`, `update_context`, etc.), successfully preventing malformed function call exceptions on Vertex AI. Migrated the default agent model to the stable `gemini-2.5-pro` (Gemini Next) to fix deprecated/unavailable model errors. Verified the local server integration endpoints using curl.
 *   **Decisions**: Expose explicit tools for each memory file to avoid passing dynamic string parameters (like filenames) that LLMs might fail to validate or populate correctly. Use `gemini-2.5-pro` as the new default model for ADK agents in this repository.
 
+### Sprint: MCP Server Setup & Agent Engine Deployment
+*   **Accomplishment**: Installed and verified 5 Google Cloud MCP servers (`developer-knowledge`, `agent-registry`, `storage`, `run`, and `gemini-cloud-assist`). Configured project-scoped configurations inside `.agents/settings.json` and `.agents/mcp_config.json`. Enabled required API services and IAM policies on the active GCP project. Successfully deployed the ADK agent to **Google Cloud Agent Engine** (Agent Runtime reasoning engine) using a staging directory build context to exclude virtual environment bloat, verifying its successful startup and state synchronization tools.
+*   **Decisions**: Exclude Python `venv` from the ADK build context to prevent packaging errors due to broken symlinks. Keep project-specific MCP server settings scoped to `.agents/` rather than global configurations.
+
 *(Append new sprint accomplishments below)*
+

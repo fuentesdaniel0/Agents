@@ -1,0 +1,69 @@
+{
+  "mcpServers": {
+    "google-developer-knowledge": {
+      "httpUrl": "https://developerknowledge.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "X-goog-user-project": "calendar-adviser"
+      }
+    },
+    "google-agent-registry": {
+      "httpUrl": "https://agentregistry.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "X-goog-user-project": "calendar-adviser"
+      }
+    },
+    "google-cloud-storage": {
+      "httpUrl": "https://storage.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "X-goog-user-project": "calendar-adviser"
+      }
+    },
+    "google-cloud-run": {
+      "httpUrl": "https://run.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "X-goog-user-project": "calendar-adviser"
+      }
+    },
+    "google-gemini-cloud-assist": {
+      "httpUrl": "https://geminicloudassist.googleapis.com/mcp",
+      "authProviderType": "google_credentials",
+      "oauth": {
+        "scopes": [
+          "https://www.googleapis.com/auth/cloud-platform"
+        ]
+      },
+      "timeout": 30000,
+      "headers": {
+        "X-goog-user-project": "calendar-adviser"
+      }
+    }
+  }
+}

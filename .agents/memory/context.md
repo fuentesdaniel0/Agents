@@ -14,7 +14,7 @@ This file documents the active state, current configurations, code graph, and ve
 | **Framework** | FastAPI / google-adk | ASGI agent microservice |
 | **Language/Typing** | Python | Type-annotated modules, Pydantic validation |
 | **Testing** | Unittest / pytest | Local unit tests and manual endpoint QA |
-| **Deployment** | Docker / Cloud Run | Source deployable to managed GCP environments |
+| **Deployment** | Vertex AI / Agent Engine | Deployed reasoning engine on Google Cloud |
 
 ---
 
@@ -45,7 +45,8 @@ graph TD
 
 ## Environment / Security Notes
 
-* None.
+*   **Active Agent Engine ID**: `projects/calendar-adviser/locations/us-central1/reasoningEngines/6274482087401390080`
+*   **MCP Servers**: Project-scoped MCP servers loaded from `.agents/settings.json` and `.agents/mcp_config.json`.
 
 ---
 
