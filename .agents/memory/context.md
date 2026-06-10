@@ -11,10 +11,10 @@ This file documents the active state, current configurations, code graph, and ve
 
 | Layer | Technology | Key Details |
 | :--- | :--- | :--- |
-| **Framework** | Markdown / AI Protocols | Drop-in files for IDE assistants |
-| **Language/Typing** | Markdown | N/A |
-| **Testing** | Manual QA | Tracked via `EVALUATION.md` |
-| **Deployment** | Git Clone | Copied via `cp -a template/.agents` |
+| **Framework** | FastAPI / google-adk | ASGI agent microservice |
+| **Language/Typing** | Python | Type-annotated modules, Pydantic validation |
+| **Testing** | Unittest / pytest | Local unit tests and manual endpoint QA |
+| **Deployment** | Docker / Cloud Run | Source deployable to managed GCP environments |
 
 ---
 

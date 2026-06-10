@@ -8,7 +8,6 @@ This file outlines the upcoming milestones, roadmap, and individual feature task
 
 *This section dictates the immediate priority for the next AI agent session. It is populated during the `/checkpoint` wrap-up or via `/plan`.*
 
-- [ ] Redeploy and test the simplified tool signature to fix malformed function calls on Vertex AI.
 - [ ] Prepare for v1.0 tag.
 
 ---

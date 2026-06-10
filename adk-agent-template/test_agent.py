@@ -1,7 +1,12 @@
 import os
 import shutil
 import unittest
-from main import read_epoch_memory, update_epoch_memory, MEMORY_DIR
+from main import (
+    read_context, update_context,
+    read_backlog, update_backlog,
+    read_changelog, update_changelog,
+    MEMORY_DIR
+)
 
 class TestEpochAgentTools(unittest.TestCase):
     @classmethod
@@ -19,27 +24,28 @@ class TestEpochAgentTools(unittest.TestCase):
         if os.path.exists(cls.test_dir):
             shutil.rmtree(cls.test_dir)
 
-    def test_read_non_existent_file(self):
-        result = read_epoch_memory("context.md")
-        self.assertIn("does not exist", result)
+    def test_read_non_existent_files(self):
+        self.assertIn("does not exist", read_context())
+        self.assertIn("does not exist", read_backlog())
+        self.assertIn("does not exist", read_changelog())
 
-    def test_write_and_read_file(self):
+    def test_write_and_read_context(self):
         test_content = "# Test Active State\nFramework: Python"
-        
-        # Test updating memory file
-        update_result = update_epoch_memory("context.md", test_content)
+        update_result = update_context(test_content)
         self.assertEqual(update_result, "Successfully updated context.md.")
+        self.assertEqual(read_context(), test_content)
 
-        # Test reading memory file back
-        read_result = read_epoch_memory("context.md")
-        self.assertEqual(read_result, test_content)
+    def test_write_and_read_backlog(self):
+        test_content = "- [ ] Task 1\n- [ ] Task 2"
+        update_result = update_backlog(test_content)
+        self.assertEqual(update_result, "Successfully updated backlog.md.")
+        self.assertEqual(read_backlog(), test_content)
 
-    def test_invalid_file_name(self):
-        with self.assertRaises(ValueError):
-            read_epoch_memory("invalid_file.txt")  # type: ignore
-
-        with self.assertRaises(ValueError):
-            update_epoch_memory("invalid_file.txt", "content")  # type: ignore
+    def test_write_and_read_changelog(self):
+        test_content = "## Sprint 1\nDone everything."
+        update_result = update_changelog(test_content)
+        self.assertEqual(update_result, "Successfully updated changelog.md.")
+        self.assertEqual(read_changelog(), test_content)
 
 if __name__ == "__main__":
     unittest.main()

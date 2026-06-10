@@ -46,24 +46,28 @@ export EPOCH_MEMORY_DIR="/path/to/your/project/.agents/memory"
 
 ## Deployment
 
-### Deploying to Cloud Run
+### 1. Local Deployment (FastAPI Dev Server)
+For local development, you can run the agent locally and verify its endpoints:
+```bash
+# Set your active GCP project ID and your Epoch memory directory path
+export GOOGLE_CLOUD_PROJECT="your-gcp-project-id"
+export EPOCH_MEMORY_DIR="/path/to/your/project/.agents/memory"
 
-To build and deploy the containerized agent to Google Cloud Run:
+# Run the FastAPI server
+python main.py
+```
+
+### 2. Deploying to Cloud Run (Single-Command Source Deploy)
+To build and deploy the containerized agent directly from source to Cloud Run, run:
 
 ```bash
-# Set your project ID
-PROJECT_ID="your-gcp-project-id"
-
-# Build the container via Cloud Build
-gcloud builds submit --tag gcr.io/$PROJECT_ID/epoch-adk-agent
-
-# Deploy to Cloud Run
 gcloud run deploy epoch-adk-agent \
-    --image gcr.io/$PROJECT_ID/epoch-adk-agent \
+    --source . \
     --platform managed \
-    --allow-unauthenticated \
+    --no-allow-unauthenticated \
     --port 8080
 ```
+*(Note: If prompted to create an Artifact Registry repository for source deploy, select **yes**).*
 
 ### Mounting Persistent Volume (Optional)
 Since Epoch is a file-based memory system, if you want your agent to modify the code repository's memory files permanently in production, you should mount a persistent storage volume (like Cloud Storage FUSE) to the `/app/.agents/memory` directory or use an API-driven memory integration.

@@ -17,8 +17,7 @@ def get_memory_path(file_name: str) -> str:
     return os.path.join(MEMORY_DIR, file_name)
 
 # Define native tools for Epoch state synchronization
-def read_epoch_memory(file_name: str) -> str:
-    """Reads the contents of an Epoch memory file to synchronize context. file_name must be context.md, backlog.md, or changelog.md."""
+def _read_epoch_memory(file_name: str) -> str:
     path = get_memory_path(file_name)
     if not os.path.exists(path):
         return f"Error: Memory file {file_name} does not exist at {path}."
@@ -28,8 +27,7 @@ def read_epoch_memory(file_name: str) -> str:
     except Exception as e:
         return f"Error reading file {file_name}: {str(e)}"
 
-def update_epoch_memory(file_name: str, content: str) -> str:
-    """Overwrites or updates an Epoch memory file to persist state changes. file_name must be context.md, backlog.md, or changelog.md."""
+def _update_epoch_memory(file_name: str, content: str) -> str:
     path = get_memory_path(file_name)
     os.makedirs(os.path.dirname(path), exist_ok=True)
     try:
@@ -38,6 +36,30 @@ def update_epoch_memory(file_name: str, content: str) -> str:
         return f"Successfully updated {file_name}."
     except Exception as e:
         return f"Error updating file {file_name}: {str(e)}"
+
+def read_context() -> str:
+    """Reads the contents of context.md to synchronize current project context and architecture state."""
+    return _read_epoch_memory("context.md")
+
+def read_backlog() -> str:
+    """Reads the contents of backlog.md to synchronize the product backlog and session focus."""
+    return _read_epoch_memory("backlog.md")
+
+def read_changelog() -> str:
+    """Reads the contents of changelog.md to synchronize completed sprints and decisions."""
+    return _read_epoch_memory("changelog.md")
+
+def update_context(content: str) -> str:
+    """Overwrites or updates context.md to persist current project context and architecture changes."""
+    return _update_epoch_memory("context.md", content)
+
+def update_backlog(content: str) -> str:
+    """Overwrites or updates backlog.md to persist session focus and active tasks."""
+    return _update_epoch_memory("backlog.md", content)
+
+def update_changelog(content: str) -> str:
+    """Overwrites or updates changelog.md to persist completed sprints and decisions."""
+    return _update_epoch_memory("changelog.md", content)
 
 from functools import cached_property
 from google.adk.models import Gemini
@@ -57,16 +79,16 @@ class VertexGemini(Gemini):
 # Create the Epoch ADK Agent using the custom model definition
 epoch_agent = Agent(
     name="epoch_context_agent",
-    model=VertexGemini(model="gemini-1.5-flash"),
+    model=VertexGemini(model="gemini-2.5-pro"),
     description="An AI agent with persistent, stateful memory synchronized via the Epoch protocol.",
     instruction=(
         "You are an AI agent operating with persistent memory tracked in .agents/memory/.\n"
-        "At the start of any task, use the `read_epoch_memory` tool to read context.md and backlog.md.\n"
+        "At the start of any task, use the `read_context` and `read_backlog` tools to read context.md and backlog.md.\n"
         "Align your actions with the Session Focus and Active Backlog Tasks.\n"
-        "When you complete a task, update context.md (if architecture/patterns changed), "
-        "move completed tasks to changelog.md, and update backlog.md using the `update_epoch_memory` tool."
+        "When you complete a task, update context.md (if architecture/patterns changed) using `update_context`, "
+        "move completed tasks to changelog.md using `update_changelog`, and update backlog.md using the `update_backlog` tool."
     ),
-    tools=[read_epoch_memory, update_epoch_memory]
+    tools=[read_context, read_backlog, read_changelog, update_context, update_backlog, update_changelog]
 )
 
 # Initialize standard ADK runner

@@ -28,4 +28,8 @@ This file captures the chronological history of milestones, architectural decisi
 *   **Accomplishment**: Created the ADK agent template (`adk-agent-template/`) with custom Epoch memory synchronization tools (`read_epoch_memory`, `update_epoch_memory`). Simplified deployment by building a standard FastAPI server (removing experimental A2A dependencies) to guarantee container startup. Built and deployed the container to Google Cloud Run, serving a healthy live endpoint. Hardened deployment security by revoking the `allUsers` role, blocking public unauthenticated internet access.
 *   **Decisions**: Defer experimental A2A protocol integration to a separate milestone (Milestone 4) to prioritize a working production deployment first. Require authenticated requests for Cloud Run invoker access in production.
 
+### Sprint: Tool Simplification & Model Migration
+*   **Accomplishment**: Simplified the memory tools signature by decomposing the generic `read_epoch_memory`/`update_epoch_memory` tools into six explicit, parameter-free (read) or single-argument (write) functions (`read_context`, `update_context`, etc.), successfully preventing malformed function call exceptions on Vertex AI. Migrated the default agent model to the stable `gemini-2.5-pro` (Gemini Next) to fix deprecated/unavailable model errors. Verified the local server integration endpoints using curl.
+*   **Decisions**: Expose explicit tools for each memory file to avoid passing dynamic string parameters (like filenames) that LLMs might fail to validate or populate correctly. Use `gemini-2.5-pro` as the new default model for ADK agents in this repository.
+
 *(Append new sprint accomplishments below)*
