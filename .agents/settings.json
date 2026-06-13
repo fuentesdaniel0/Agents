@@ -10,7 +10,7 @@
       },
       "timeout": 30000,
       "headers": {
-        "X-goog-user-project": "calendar-adviser"
+        "X-goog-user-project": "your-gcp-project-id"
       }
     },
     "google-agent-registry": {
@@ -23,11 +23,11 @@
       },
       "timeout": 30000,
       "headers": {
-        "X-goog-user-project": "calendar-adviser"
+        "X-goog-user-project": "your-gcp-project-id"
       }
     },
     "google-cloud-storage": {
-      "httpUrl": "https://storage.googleapis.com/mcp",
+      "httpUrl": "https://storage.googleapis.com/storage/mcp",
       "authProviderType": "google_credentials",
       "oauth": {
         "scopes": [
@@ -36,7 +36,7 @@
       },
       "timeout": 30000,
       "headers": {
-        "X-goog-user-project": "calendar-adviser"
+        "X-goog-user-project": "your-gcp-project-id"
       }
     },
     "google-cloud-run": {
@@ -49,7 +49,7 @@
       },
       "timeout": 30000,
       "headers": {
-        "X-goog-user-project": "calendar-adviser"
+        "X-goog-user-project": "your-gcp-project-id"
       }
     },
     "google-gemini-cloud-assist": {
@@ -62,7 +62,7 @@
       },
       "timeout": 30000,
       "headers": {
-        "X-goog-user-project": "calendar-adviser"
+        "X-goog-user-project": "your-gcp-project-id"
       }
     }
   }

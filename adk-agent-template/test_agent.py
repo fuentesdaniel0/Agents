@@ -16,8 +16,8 @@ class TestEpochAgentTools(unittest.TestCase):
         cls.test_dir = os.path.join(os.path.dirname(__file__), "test_memory")
         os.makedirs(cls.test_dir, exist_ok=True)
         # Override the global MEMORY_DIR dynamically for the test run
-        import main
-        main.MEMORY_DIR = cls.test_dir
+        import tools
+        tools.MEMORY_DIR = cls.test_dir
 
     @classmethod
     def tearDownClass(cls):
@@ -85,6 +85,11 @@ class TestEpochAgentTools(unittest.TestCase):
         # Unauthorized command
         res = run_verification_command("cat /etc/passwd")
         self.assertIn("is not in the allowed list", res)
+
+# Import other test classes to consolidate test runner
+from test_registry import TestAgentRegistry
+from test_factory import TestAgentFactory
+from test_routes import TestFastAPIRoutes
 
 if __name__ == "__main__":
     unittest.main()

@@ -5,7 +5,7 @@ This template provides a base python implementation of an **Agent Development Ki
 ## Features
 
 - **Epoch Memory Integration**: Exposes tools to read and write Epoch's state tracking files (`context.md`, `backlog.md`, `changelog.md`).
-- **A2A Support**: Exposes the agent as an A2A-compliant service using ADK's `to_a2a()` helper, serving an automatic **Agent Card** at `/.well-known/agent-card.json`.
+- **Agent Factory Pattern**: Dynamically registers, configures, and instantiates ADK-compatible agents with selected tools via API endpoints.
 - **Docker Ready**: Includes a production-ready `Dockerfile` for easy deployment to containerized environments.
 
 ---
@@ -29,10 +29,33 @@ python main.py
 ```
 
 By default, the server runs on `http://0.0.0.0:8080`.
-You can access the auto-generated A2A Agent Card by visiting:
-```
-http://localhost:8080/.well-known/agent-card.json
-```
+
+### Agent Factory API Endpoints
+
+The FastAPI server exposes endpoints to dynamically manage and run custom agents:
+
+- **`POST /agents`**: Register a new agent configuration.
+  ```json
+  {
+    "name": "custom_agent",
+    "model": "gemini-2.5-flash",
+    "description": "Dynamic custom agent",
+    "instruction": "Answer questions briefly.",
+    "tools": ["read_file"]
+  }
+  ```
+- **`GET /agents`**: List all dynamically registered agent configurations.
+- **`GET /agents/{name}`**: Retrieve configuration details for a specific agent.
+- **`DELETE /agents/{name}`**: Delete a registered agent configuration.
+- **`POST /run`**: Run a prompt. Optionally specify the dynamic `"agent"` name to execute that custom agent:
+  ```json
+  {
+    "prompt": "Sync memory and list the backlog.",
+    "agent": "custom_agent"
+  }
+  ```
+- **`POST /agents/{name}/run`**: Directly run the named custom agent.
+
 
 ### 3. Folder Structure & Configuration
 

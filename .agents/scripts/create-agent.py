@@ -14,11 +14,23 @@ def main():
     
     if len(sys.argv) < 2:
         print("Error: Target project directory path must be provided.")
-        print("Usage: python3 scripts/create-agent.py <target-directory>")
+        print("Usage: python3 .agents/scripts/create-agent.py <target-directory>")
         sys.exit(1)
         
     target_dir = os.path.abspath(sys.argv[1])
-    root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+    # Resolve root path of the Epoch project
+    current_dir = os.path.abspath(os.path.dirname(__file__))
+    root_dir = None
+    while current_dir and current_dir != os.path.dirname(current_dir):
+        if os.path.exists(os.path.join(current_dir, "template")) and os.path.exists(os.path.join(current_dir, "adk-agent-template")):
+            root_dir = current_dir
+            break
+        current_dir = os.path.dirname(current_dir)
+        
+    if not root_dir:
+        print("Error: Could not resolve the project root directory.")
+        sys.exit(1)
+        
     template_dir = os.path.join(root_dir, "adk-agent-template")
     
     if os.path.exists(target_dir):
